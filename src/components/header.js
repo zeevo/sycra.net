@@ -142,12 +142,14 @@ const IHeader = ({ setMobileMenuOpen }) => {
             <Nav>
               {navbar.map(item =>
                 item.draft ? (
-                  <NavBarLink>{item.label}</NavBarLink>
+                  <NavBarLink key={item.label}>{item.label}</NavBarLink>
                 ) : (
-                  <NavBarLink to={item.to}>{item.label}</NavBarLink>
+                  <NavBarLink key={item.label} to={item.to}>
+                    {item.label}
+                  </NavBarLink>
                 )
               )}
-              <INavBarButton onClick={setMobileMenuOpen}>
+              <INavBarButton onClick={() => setMobileMenuOpen(true)}>
                 <svg
                   width="2em"
                   height="2em"
